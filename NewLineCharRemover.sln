@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewLineCharRemover", "NewLineCharRemover\NewLineCharRemover.csproj", "{73CC0CC3-8789-4934-BE11-143FC1508095}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73CC0CC3-8789-4934-BE11-143FC1508095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73CC0CC3-8789-4934-BE11-143FC1508095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73CC0CC3-8789-4934-BE11-143FC1508095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73CC0CC3-8789-4934-BE11-143FC1508095}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29CA1491-9E55-4CD0-9EC4-F5254CCF094E}
+	EndGlobalSection
+EndGlobal
