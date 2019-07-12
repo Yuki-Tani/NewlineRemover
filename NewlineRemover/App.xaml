@@ -1,9 +1,8 @@
-﻿<Application x:Class="NewLineCharRemover.App"
+﻿<Application x:Class="NewlineRemover.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:NewLineCharRemover"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:NewlineRemover">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>

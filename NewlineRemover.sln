@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewLineCharRemover", "NewLineCharRemover\NewLineCharRemover.csproj", "{73CC0CC3-8789-4934-BE11-143FC1508095}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewlineRemover", "NewlineRemover\NewlineRemover.csproj", "{73CC0CC3-8789-4934-BE11-143FC1508095}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{4817BB8C-BA4D-4FD1-A780-49AD41E892EC}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{DFC73AE0-2A82-43B6-A522-0E7E106C8A65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,11 @@ Global
 		{73CC0CC3-8789-4934-BE11-143FC1508095}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73CC0CC3-8789-4934-BE11-143FC1508095}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73CC0CC3-8789-4934-BE11-143FC1508095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4817BB8C-BA4D-4FD1-A780-49AD41E892EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4817BB8C-BA4D-4FD1-A780-49AD41E892EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFC73AE0-2A82-43B6-A522-0E7E106C8A65}.Debug|Any CPU.ActiveCfg = Debug
+		{DFC73AE0-2A82-43B6-A522-0E7E106C8A65}.Release|Any CPU.ActiveCfg = Release
+		{DFC73AE0-2A82-43B6-A522-0E7E106C8A65}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
