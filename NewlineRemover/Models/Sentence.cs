@@ -42,11 +42,15 @@ namespace NewlineRemover.Models
 
         public string GetTextHead(int head_length = 5)
         {
-            string head = content.Substring(0, head_length);
-            if(content.Length > head_length)
+            string head = "";
+            if (content.Length > head_length)
             {
-                head = head + "…";
+                head = content.Substring(0, head_length) + "…";
             }
+            else
+            {
+                head = content;
+            }          
             return head;
         }
     }

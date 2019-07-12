@@ -62,6 +62,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -222,15 +230,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:NewlineRemover"
-        "ProductCode" = "8:{257CCCEF-34FF-480F-95D4-F1AD9E64387B}"
-        "PackageCode" = "8:{D157AA90-B98F-45EF-BB82-722331448774}"
+        "ProductCode" = "8:{CF1E84B5-266E-4B94-B2D8-E4F02027F6C6}"
+        "PackageCode" = "8:{B2F429C2-ADFD-4C3C-8F26-D17E093C316E}"
         "UpgradeCode" = "8:{21984A28-F77B-42F5-96B0-E1ED5BD55A28}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.0.0"
+        "ProductVersion" = "8:2.0.1"
         "Manufacturer" = "8:YukiApps"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
