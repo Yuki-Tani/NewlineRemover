@@ -10,9 +10,12 @@
 
     <Grid Width="300" Height="330">
         <Grid Margin="0,0,0,0" Grid.ColumnSpan="2">
-            <TextBox HorizontalAlignment="Left" Height="214" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding TextBoxContent}" VerticalAlignment="Top" UndoLimit="91" AcceptsReturn="True" Width="280"/>
-            <Button Content="Remove and Copy" HorizontalAlignment="Left" Margin="172,229,0,0" VerticalAlignment="Top" Width="118" Command="{Binding ClickRemoveButtonCommand}" Height="20"/>
+            <TextBox HorizontalAlignment="Left" Height="180" Margin="10,44,0,0" TextWrapping="Wrap" Text="{Binding TextBoxContent}" VerticalAlignment="Top" UndoLimit="91" AcceptsReturn="True" Width="280"/>
+            <Button Content="Copy" HorizontalAlignment="Left" Margin="230,229,0,0" VerticalAlignment="Top" Width="60" Command="{Binding ClickCopyButtonCommand}" Height="20"/>
             <TextBox HorizontalAlignment="Left" Height="66" Margin="10,254,0,0" TextWrapping="Wrap" Text="{Binding Notification}" VerticalAlignment="Top" Width="280" IsReadOnly="True" AcceptsReturn="True" Background="#FFF0F0F0"/>
+            <Button Content="Remove Newline On Clipboard" HorizontalAlignment="Center" Margin="50,10,50,0" VerticalAlignment="Top" Width="200" Height="29" Click="Button_Click" Command="{Binding ClickRemoveOnClipboardButtonCommand}"/>
+            <Button Content="Remove Newline" HorizontalAlignment="Left" Margin="104,229,0,0" VerticalAlignment="Top" Width="120" Command="{Binding ClickRemoveButtonCommand}"/>
+            <Button Content="Clear" HorizontalAlignment="Left" Margin="10,229,0,0" VerticalAlignment="Top" Width="50" Command="{Binding ClickClearButtonCommand}"/>
         </Grid>
     </Grid>
 </Window>

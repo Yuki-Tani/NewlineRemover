@@ -17,6 +17,12 @@ namespace NewlineRemover.Models
             this.content = content;
         }
 
+        public static Sentence CreateSentenceFromClipboard()
+        {
+            String text = Clipboard.GetText();
+            return new Sentence(text);
+        }
+
         public Sentence RemoveNewline()
         {
             Regex target = new Regex(" *(\r\n|\r|\n) *");
@@ -32,6 +38,16 @@ namespace NewlineRemover.Models
         public override string ToString()
         {
             return content;
+        }
+
+        public string GetTextHead(int head_length = 5)
+        {
+            string head = content.Substring(0, head_length);
+            if(content.Length > head_length)
+            {
+                head = head + "…";
+            }
+            return head;
         }
     }
 }

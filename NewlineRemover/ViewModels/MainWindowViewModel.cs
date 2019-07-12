@@ -28,23 +28,81 @@ namespace NewlineRemover.ViewModels
             set { _clickRemoveButtonCommand = value; }
         }
 
+        private ClickClearButtonCommand _clickClearButtonCommand;
+        public ClickClearButtonCommand ClickClearButtonCommand
+        {
+            get
+            {
+                if (_clickClearButtonCommand == null)
+                    _clickClearButtonCommand = new ClickClearButtonCommand(this);
+                return _clickClearButtonCommand;
+            }
+            set { _clickClearButtonCommand = value; }
+        }
+
+        private ClickCopyButtonCommand _clickCopyButtonCommand;
+        public ClickCopyButtonCommand ClickCopyButtonCommand
+        {
+            get
+            {
+                if (_clickCopyButtonCommand == null)
+                    _clickCopyButtonCommand = new ClickCopyButtonCommand(this);
+                return _clickCopyButtonCommand;
+            }
+            set { _clickCopyButtonCommand = value; }
+        }
+
+        private ClickRemoveOnClipboardButtonCommand _clickRemoveOnClipboardButtonCommand;
+        public ClickRemoveOnClipboardButtonCommand ClickRemoveOnClipboardButtonCommand
+        {
+            get
+            {
+                if (_clickRemoveOnClipboardButtonCommand == null)
+                    _clickRemoveOnClipboardButtonCommand = new ClickRemoveOnClipboardButtonCommand(this);
+                return _clickRemoveOnClipboardButtonCommand;
+            }
+            set { _clickRemoveOnClipboardButtonCommand = value; }
+        }
+
+
+        // functions
 
         public void AddNotification(string notice_message)
         {
-            Notification = Notification + notice_message + "\n";
+            Notification = notice_message + "\n" + Notification;
             RaisePropertyChanged("Notification");
         }
 
-        public void RemoveNewlineAndCopy()
+        public void PasteClipboardToTextBox()
+        {
+            Sentence target = Sentence.CreateSentenceFromClipboard();
+            TextBoxContent = target.ToString();
+            RaisePropertyChanged("TextBoxContent");
+            AddNotification("Paste from clipboard. (" + target.GetTextHead() + ")");
+        }
+
+        public void RemoveNewlineInTextBox()
         {
             Sentence target = new Sentence(TextBoxContent);
             //改行文字の除去
             Sentence removed = target.RemoveNewline();
             TextBoxContent = removed.ToString();
             RaisePropertyChanged("TextBoxContent");
-            //コピー
-            removed.CopyToClipboard();
-            AddNotification("Remove and Copy.");
+            AddNotification("Remove newline. (" + removed.GetTextHead()+")");
+        }
+
+        public void CopyTextBoxToClipboard()
+        {
+            Sentence target = new Sentence(TextBoxContent);
+            target.CopyToClipboard();
+            AddNotification("Copy to clipboard. (" + target.GetTextHead() + ")");
+        }
+
+        public void ClearTextBox()
+        {
+            TextBoxContent = "";
+            RaisePropertyChanged("TextBoxContent");
+            AddNotification("Clear.");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -55,13 +113,42 @@ namespace NewlineRemover.ViewModels
 
     }
 
+    //Command class for binding
 
+    class ClickClearButtonCommand : ICommand
+    {
+
+        public event EventHandler CanExecuteChanged;
+        protected void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        MainWindowViewModel vm;
+
+        public ClickClearButtonCommand(MainWindowViewModel vm)
+        {
+            this.vm = vm;
+            RaiseCanExecuteChanged();
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            vm.ClearTextBox();
+        }
+    }
 
     class ClickRemoveButtonCommand : ICommand
     {
 
         public event EventHandler CanExecuteChanged;
-        protected void RaiseCanExecuteChanged() {
+        protected void RaiseCanExecuteChanged()
+        {
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
 
@@ -80,8 +167,65 @@ namespace NewlineRemover.ViewModels
 
         public void Execute(object parameter)
         {
-            vm.RemoveNewlineAndCopy();
+            vm.RemoveNewlineInTextBox();
         }
     }
 
+    class ClickCopyButtonCommand : ICommand
+    {
+
+        public event EventHandler CanExecuteChanged;
+        protected void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        MainWindowViewModel vm;
+
+        public ClickCopyButtonCommand(MainWindowViewModel vm)
+        {
+            this.vm = vm;
+            RaiseCanExecuteChanged();
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            vm.CopyTextBoxToClipboard();
+        }
+    }
+
+    class ClickRemoveOnClipboardButtonCommand : ICommand
+    {
+
+        public event EventHandler CanExecuteChanged;
+        protected void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        MainWindowViewModel vm;
+
+        public ClickRemoveOnClipboardButtonCommand(MainWindowViewModel vm)
+        {
+            this.vm = vm;
+            RaiseCanExecuteChanged();
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            vm.PasteClipboardToTextBox();
+            vm.RemoveNewlineInTextBox();
+            vm.CopyTextBoxToClipboard();
+        }
+    }
 }
